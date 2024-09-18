@@ -1,39 +1,37 @@
-import { useContext } from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { useContext } from "react";
+import { StyleSheet, View, Text } from "react-native";
 
-import MealList from '../components/MealList/MealList'
+import MealList from "../components/MealList/MealList";
 
-import { FavContext } from '../store/context/fav-context'
+import { FavContext } from "../store/context/fav-context";
 
-import { useAppSelector, useAppDispatch } from '../store/redux/hooks'
+import { useAppSelector, useAppDispatch } from "../store/redux/hooks";
 
 const FavoritesScreen = () => {
-  // const { ids } = useContext(FavContext)
-  const ids = useAppSelector(state=>state.favorites.ids)
+  const ids = useAppSelector((state) => state.favorites.ids);
 
   if (ids.length > 0) {
-    return <MealList idArray={ids} />
+    return <MealList idArray={ids} />;
   }
   return (
     <View style={styles.container}>
       <Text style={styles.text}>No favorites found.</Text>
     </View>
-  )
-}
+  );
+};
 
-export default FavoritesScreen
+export default FavoritesScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    justifyContent: 'center',
-    
+    justifyContent: "center",
   },
   text: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 24,
-    textAlign: 'center',
-    color: '#fff'
-  }
-})
+    textAlign: "center",
+    color: "#fff",
+  },
+});
